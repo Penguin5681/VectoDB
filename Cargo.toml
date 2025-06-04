@@ -2,5 +2,23 @@
 name = "VectoDB"
 version = "0.1.0"
 edition = "2024"
+authors = ["Penguin5681"]
+description = "A High-Performance, Embedding-Aware Vector Database Engine"
+
+[workspace]
+members = [
+    "crates/vectodb-core",
+    "crates/vectodb-server",
+    "crates/vectodb-metrics",
+    "crates/vectodb-proto",
+    "tools/cli",
+    "tools/admin",
+    "examples/simple_search",
+    "examples/semantic_search"
+]
 
 [dependencies]
+vectodb-core = { path = "crates/vectodb-core" }
+tokio = { version = "1.0", features = ["full"] }
+clap = { version = "4.0", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
